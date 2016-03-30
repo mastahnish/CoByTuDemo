@@ -1,0 +1,442 @@
+<resources>
+    <string name="app_name">CoByTuDemo</string>
+    <string name="action_download">Download</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="error_parser">Błąd parsera. Spróbuj ponownie.</string>
+    <string name="error_network">Błąd sieci. Spróbuj ponownie.</string>
+    <string name="error_server">Błąd serwera. Spróbuj ponownie za chwilę.</string>
+    <string name="error_auth_failure">Błąd uwierzytelnienia. Spróbuj ponownie.</string>
+    <string name="error_network_timeout">Błąd sieci. Podłącz się do internetu i spróbuj ponownie.</string>
+    <string name="suggestion_send">Gotowe</string>
+    <string name="suggestion_restaurant_name">Nazwa restauracji*</string>
+    <string name="suggestion_restaurant_city">Miasto*</string>
+    <string name="suggestion_restaurant_street">Ulica</string>
+    <string name="suggestion_restaurant_street_number">Nr.</string>
+    <string name="suggestion_restaurant_phone_number">Numer telefonu restauracji</string>
+    <string name="suggestion_restaurant_email">Email</string>
+    <string name="accessibility_overflow">accessibility_overflow</string>
+    <string name="drawer_ingredients">Ocena składników</string>
+    <string name="drawer_additionals">Ocena dodatków</string>
+    <string name="drawer_meals_for_me">Dania dla mnie</string>
+    <string name="suggestion_restaurateur">Jestem restauratorem</string>
+    <string name="drawer_profie">Profil</string>
+    <string name="drawer_logout">Wyloguj</string>
+    <string name="action_settings">Settings</string>
+    <string name="mainCourseDetailsActivity">MainCourseDetailsActivity</string>
+    <string name="userProfileActivity">UserProfileActivity</string>
+    <string name="ingredientsCategories">IngredientCategories</string>
+    <string name="additionalCategories">AdditionalCategories</string>
+    <string name="mainActivityTitle">Dania dla mnie</string>
+    <string name="ingredientsList">IngredientsList</string>
+    <string name="additionalsList">AdditionalsList</string>
+    <string name="ingredientCategoriesActivityTitle">Lista kategorii składników</string>
+    <string name="additionalCategoriesActivityTitle">Lista kategorii dodatków</string>
+    <string name="subtitle"> <!-- Jeżeli jesteś w restauracji lub wybierasz się do niej i zastanawiasz się co by tu zjeść - tutaj znajdziesz odpowiedź. Nie musisz studiować menu, pytać kelnera lub wybierać w ciemno. CoByTu.com ma menu przygotowane specjalnie dla Ciebie. Wszystkie dania dostępne w restauracji ułożone według Twoich preferencji. Oceń jak bardzo lubisz poszczególne składniki dań i dodatki a okaże się, że każda restauracja przygotowała coś specjalnie dla Ciebie. CoByTu.com wskaże Ci co to jest. Smacznego. -->
+        Jedz tylko to co lubisz...</string>
+    <string name="wrong_password_title">Nieprawidłowe hasło</string>
+    <string name="wrong_password_text">Wprowadzone hasło jest nieprawidłowe. Spróbuj ponownie.</string>
+    <string name="wrong_register_data_title">Nieprawidłowe dane</string>
+    <string name="wrong_register_data_passwords">Hasła muszą być takie same.</string>
+    <string name="wrong_register_data_text">Login musi mieć więcej niż 3 znaki.\nHasło musi mieć więcej niż 6 znaków.\nNie używaj polskich znaków.\n\nPopraw:\n</string>
+    <string name="wrong_register_data_text_end">\n\nUzupełnij wszystkie pola.</string>
+    <string name="ok">OK</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Ustawienia</string>
+    <string name="menu_information">Informacje</string>
+    <string name="menu_suggest_restaurant">Poleć restaurację</string>
+    <string name="menu_logout">Wyloguj</string>
+    <string name="menu_back_to_login">Wróć do logowania</string>
+    <string name="actualize_app_data">Zaktualizuj dane</string>
+    <string name="regulations">Regulamin</string>
+    <string name="policy">Polityka prywatności</string>
+    <string name="app_version">Wersja</string>
+    <string name="todo">TODO</string>
+    <string name="kategoria">Kategoria</string>
+    <string name="kategorie">Kategorie</string>
+    <string name="brak_danych">Brak danych</string>
+    <string name="refresh_kategorie">Odśwież kategorie</string>
+    <string name="refresh_skladniki">Odśwież składniki</string>
+    <string name="zjedz_cos">Zjedz coś</string>
+    <string name="zapisz_preferencje">Zapisz preferencje</string>
+    <string name="save">Zapisz</string>
+    <string name="wiecej">Więcej</string>
+    <string name="zero">0</string>
+    <string name="nazwa_dania">Nazwa dania</string>
+    <string name="cena">800,00</string>
+    <string name="czas">Czas</string>
+    <string name="ocena_dania">100</string>
+    <string name="sto">100</string>
+    <string name="filters">Filtry</string>
+    <string name="save_filters">Filtruj</string>
+    <string name="location">Lokalizacja</string>
+    <string name="save_location">Zatwierdź</string>
+    <string name="description">Opis</string>
+    <string name="currency">PLN</string>
+    <string name="calories">kcal</string>
+    <string name="allergens">Alergeny</string>
+    <string name="no_allergens">To danie nie zawiera żadnych alergenów.</string>
+    <string name="register">Zarejestruj się</string>
+    <string name="first_name">Imię</string>
+    <string name="last_name">Nazwisko</string>
+    <string name="email">E-mail</string>
+    <string name="username">Login</string>
+    <string name="password">Hasło</string>
+    <string name="password_repeated">Powtórz hasło</string>
+    <string name="city">Miejscowość</string>
+    <string name="district">Województwo</string>
+    <string name="student">Student</string>
+    <string name="register_student">Jestem studentem - szansa na zniżki</string>
+    <string name="logging">LOGOWANIE</string>
+    <string name="registering">REJESTRACJA</string>
+    <string name="decline_text">Wejdź bez logowania</string>
+    <string name="register_text">Rejestracja</string>
+    <string name="back_to_login">Wróć do logowania</string>
+    <string name="welcome_user">Cześć</string>
+    <string name="register_new_user">Utwórz konto</string>
+    <string name="register_completed">Zarejestrowano pomyślnie!</string>
+    <string name="register_completed_email_info">Odbierz maila i potwierdź rejestrację</string>
+    <string name="user_profile_email">E-mail</string>
+    <string name="user_profile_city">Miejscowość</string>
+    <string name="user_profile_district">Województwo</string>
+    <string name="user_profile_student">Student</string>
+    <string name="user_profile_allergens_info">Jak reagować na zawartość alergenu?</string>
+    <string name="user_profile_allergens_info_0"> Wszystko w normie</string>
+    <string name="user_profile_allergens_info_1"> Uważaj, jak zjesz to spuchnie Ci gardło</string>
+    <string name="user_profile_allergens_info_2"> Nie jedz tego, bo umrzesz!</string>
+    <string name="user_profile_allergens_no_action">Wyświetlaj dania</string>
+    <string name="user_profile_allergens_caution_display">Wyświetlaj ostrzeżenia</string>
+    <string name="user_profile_allergens_no_display">Nie wyświetlaj dania lub dodatku!</string>
+    <string name="user_profile_allergens_milk">Mleko</string>
+    <string name="user_profile_allergens_sesame">Sezam</string>
+    <string name="user_profile_allergens_peanuts">Orzeszki ziemne</string>
+    <string name="user_profile_allergens_fish">Ryby</string>
+    <string name="user_profile_allergens_shellfish">Skorupiaki</string>
+    <string name="user_profile_allergens_sulfur">SO2 i siarczany</string>
+    <string name="user_profile_allergens_molluscs">Mięczaki</string>
+    <string name="user_profile_allergens_celery">Seler</string>
+    <string name="user_profile_allergens_eggs">Jaja</string>
+    <string name="user_profile_allergens_charlock">Gorczyca</string>
+    <string name="user_profile_allergens_lupine">Łubin</string>
+    <string name="user_profile_allergens_soy">Soja</string>
+    <string name="user_profile_allergens_nuts">Orzechy</string>
+    <string name="user_profile_allergens_cereals">Zboża</string>
+    <string name="user_profile_email_et">przyklad@domena.pl</string>
+    <string name="user_profile_city_et">Miejscowość</string>
+    <string name="user_profile_district_et">Województwo</string>
+    <string name="main_course_photo">Zdjęcie dania</string>
+    <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="lorem_ipsum_short">Lorem ipsum dolor sit amet.</string>
+    <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="drawer_open">Open Navigation Drawer</string>
+    <string name="drawer_close">Close Navigation Drawer</string>
+    <string name="drawerFirstRowSeeProfile">Zobacz swój profil</string>
+    <string name="logoutAlertTitle">Wylogowanie</string>
+    <string name="logoutAlertMessage">Czy na pewno chcesz się wylogować?</string>
+    <string name="logoutAlertYesButton">Tak</string>
+    <string name="logoutAlertNoButton">Nie</string>
+    <string name="crash_raport_toast_text">Ups, coś sie popsuło, ale spokojnie - wysłałem maila z raportem do Jacka. On to naprawi!</string>
+    <string name="choose_category_eval">Wybierz ocenę kategorii</string>
+    <string name="tap_to_change_eval">Dotknij buźkę, żeby ocenić składnik</string>
+    <string name="fast_evaluation_text">Szybka ocena - dotknij buźkę, aby nadać jedną ocenę całej kategorii</string>
+    <string name="dialog_category_eval_title">Oceń całą kategorię</string>
+    <string name="dialog_category_eval_message1">Czy chcesz nadać wszystkim składnikom  w kategorii&#160;</string>
+    <string name="dialog_category_eval_message2">&#160;ocenę:&#160;</string>
+    <string name="filter_location_restaurant">Restauracja</string>
+    <string name="install_barcode_scanner">Zainstaluj skaner</string>
+    <string name="install_barcode_scanner_description1">Ta opcja wymaga skanera. \n\nMusisz zainstalować&#160;</string>
+    <string name="install_barcode_scanner_description2">Barcode Scanner (ZXing)</string>
+    <string name="no_meals">Wygląda na to, że nie ma dań, internet zamulił. Spróbuj ponownie.</string>
+    <string name="contact">Kontakt</string>
+
+    <string-array name="tabs_main_courses_details">
+        <item>INFO</item>
+        <item>RESTAURACJE</item>
+        <item>OCENA</item>
+        <item>OPINIE</item>
+    </string-array>
+
+    <string name="facilities">Udogodnienia</string>
+    <string name="airconditioning">KLIMATYZACJA</string>
+    <string name="playground">STREFA ZABAWY</string>
+    <string name="takeaway">DANIA NA WYNOS</string>
+    <string name="parking">WŁASNY PARKING</string>
+    <string name="wifi">WI-FI</string>
+    <string name="garden">OGRÓDEK LETNI</string>
+    <string name="card">PŁATNOŚĆ KARTĄ</string>
+    <string name="wheelchair">UDOGODNIENIA DLA NIEPEŁNOSPRAWNYCH</string>
+    <string name="ingredients">Składniki dania</string>
+    <string name="additionals">Dodatki</string>
+
+    <string-array name="main_courses_details_opinions_look">
+        <item>nieapetyczny</item>
+        <item>kiepski</item>
+        <item>poprawny</item>
+        <item>apetyczny</item>
+        <item>rewelacyjny</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_taste">
+        <item>tragiczny</item>
+        <item>nieokreślony</item>
+        <item>dobry</item>
+        <item>pyszny</item>
+        <item>wyśmienity</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_smell">
+        <item>tragiczny</item>
+        <item>brak</item>
+        <item>neutralny</item>
+        <item>przyjemny</item>
+        <item>rewelacyjny</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_temperature">
+        <item>za niska</item>
+        <item>za wysoka</item>
+        <item>prawie dobra</item>
+        <item>odpowiednia</item>
+        <item>idealna</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_quantity">
+        <item>bardzo mała</item>
+        <item>mała</item>
+        <item>średnia</item>
+        <item>właściwa</item>
+        <item>duża</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_price">
+        <item>za wysoka</item>
+        <item>ciut za wysoka</item>
+        <item>właściwa</item>
+        <item>niska</item>
+        <item>bardzo niska</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_main_course_description">
+        <item>Danie nie posiada cech zawartych w opisie</item>
+        <item>Danie nie w pełni odpowiada opisowi</item>
+        <item>Danie posiada cechy zawarte w opisie</item>
+        <item>Danie idealnie odpowiada opisowi</item>
+        <item>Danie jest znacznie lepsze niż wynika to z opisu</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_photo">
+        <item>Danie wygląda zupełnie inaczej niż na zdjęciu</item>
+        <item>Danie nie wygląda dokładnie tak jak na zdjęciu</item>
+        <item>Danie wygląda podobnie jak na zdjęciu</item>
+        <item>Danie wygląda dokładnie tak jak na zdjęciu</item>
+        <item>Danie wygląda znacznie lepiej niż na zdjęciu</item>
+    </string-array>
+    <string-array name="main_courses_details_opinions_cobytucom">
+        <item>błędnie wyliczyło poziom lubienia dania</item>
+        <item>nieprecyzyjnie wyliczyło poziom lubienia dania</item>
+        <item>poprawnie wyliczyło poziom lubienia dania</item>
+        <item>właściwie uporządkowało listę dań</item>
+        <item>pomogło mi w wyborze właściwego dania</item>
+    </string-array>
+
+    <string name="added">Dodano</string>
+    <string name="modified">Zmodyfikowano</string>
+    <string name="look">Wygląd</string>
+    <string name="taste">Smak</string>
+    <string name="smell">Zapach</string>
+    <string name="temperature">Temperatura</string>
+    <string name="quantity">Ilość</string>
+    <string name="price">Cena</string>
+    <string name="opinion_main_course_description">Opis dania</string>
+    <string name="photo">Zdjęcie</string>
+    <string name="listRefreshed">Lista została odświeżona</string>
+    <string name="restauranSuggestThanks">Dziękujemy za polecenie restauracji</string>
+    <string name="refreshAppDataCompleted">Dane zostały odświeżone</string>
+    <string name="allEvaluationsAreTheSame">Wszystkie oceny są takie same!, czyli: </string>
+    <string name="unknownQRCode">To nie jest QR kod należący do CoByTu.com. Zeskanuj poprawny kod</string>
+    <string name="notLocationCode">Tym kodem nie zeskanujesz lokalizacji. Zeskanuj poprawny kod</string>
+    <string name="noLocationScanned">Nie zeskanowałeś lokalizacji</string>
+    <string name="scanAgain">Coś poszło nie tak. Zeskanuj jeszcze raz</string>
+    <string name="categoryListRefreshedIngredients">Lista kategorii składników odświeżona!</string>
+    <string name="categoryListRefreshedAdditionals">Lista kategorii dodatków odświeżona!</string>
+    <string name="noActionPerformedAdditionals">Nie dokonałeś żadnych zmian w składnikach!</string>
+    <string name="noActionPerformedIngredients">Nie dokonałeś żadnych zmian w składnikach!</string>
+    <string name="sortAZ">Lista posortowana alfaberycznie rosnąco</string>
+    <string name="sortZA">Lista posortowana alfaberycznie malejąco</string>
+    <string name="sortEvalASC">Lista posortowana wg oceny rosnąco</string>
+    <string name="sortEvalDESC">Lista posortowana wg oceny malejąco</string>
+    <string name="sortGroupCategoryASC">Lista posortowana wg grup kategorii rosnąco</string>
+    <string name="sortGroupCategoryDESC">Lista posortowana wg grup kategorii malejąco</string>
+    <string name="noCategories">Nie udało się pobrać kategorii"</string>
+    <string name="JSONError">Błąd związany z JSONem"</string>
+    <string name="noAdditionalsInCategory">Brak dodatków w wybranej kategorii"</string>
+    <string name="noIngredientsInCategory">Brak składników w wybranej kategorii"</string>
+    <string name="suggestRestaurant">Poleć restaurację</string>
+    <string name="fillCityAndName">Uzupełnij nazwę i miasto restauracji"</string>
+
+    <string name="prefsCategoryData">Dane</string>
+    <string name="prefsAboutApp">O aplikacji</string>
+
+    <string name="tabTitleAll">WSZYSTKO</string>
+    <string name="tabTitleSnacks">PRZYSTAWKI</string>
+    <string name="tabTitleSoups">ZUPY</string>
+    <string name="tabTitleSalads">SAŁATKI</string>
+    <string name="tabTitleMainCourses">DANIA GŁÓWNE</string>
+    <string name="tabTitleForKids">DLA DZIECI</string>
+    <string name="tabTitleDesserts">DESERY</string>
+    <string name="tabTitleBeverages">NAPOJE</string>
+    <string name="tabTitleAlcohol">ALKOHOLE</string>
+
+    <string name="priceDependsOnLocation">Cena zależy od lokalizacji</string>
+
+    <string name="noAdditionalsPredicted">To danie nie przewiduje dodatków</string>
+    <string name="sendEmail">Wyślij maila</string>
+    <string name="createAccountInWWW">Stwórz konto na www.cobytu.com</string>
+
+    <string name="downloadingAdditionalsCategories">Pobieranie kategorii dodatków...</string>
+    <string name="downloadingFilters">Pobieranie filtrów...</string>
+    <string name="downloadingIngredientsCategories">Pobieranie kategorii składników...</string>
+    <string name="downloadingMainCourses">Pobieranie dań...</string>
+
+    <string name="chooseDistrict">Wybierz województwo</string>
+    <string name="chooseCity">Wybierz miasto</string>
+    <string name="chooseRestaurant">Wybierz restaurację</string>
+
+    <string name="loadMoreMainCourses">Ładuję kolejne dania</string>
+
+    <string name="updateLocation">Zaktualizuj lokalizację</string>
+    <string name="facebook_app_id">434189893456716</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_regulations">RegulationsActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_preference">PreferenceActivity</string>
+    <string name="title_activity_opinion_acitivty">OpinionAcitivty</string>
+
+
+    <string name="opinionsListActivityTitle">Twoje opinie</string>
+
+    <string name="opinionActivityTitleADD">Dodaj opinię o daniu</string>
+    <string name="opinionActivityTitleEDIT">Edytuj opinię o daniu</string>
+    <string name="opinionValueAuthor">Autor opinii*</string>
+    <string name="opinionValueTitle">Tytuł opinii*</string>
+    <string name="opinnionValueDescription">Treść opinii</string>
+
+    <string name="opinionValueMandatoryfield">Pole obowiązkowe</string>
+    <string name="opinionValueOptionally">(Opcjonalnie)</string>
+    <string name="opinionValuePointsForMeal">Dodaj punkty dla dania</string>
+    <string name="opinionValueLook">Wygląd</string>
+    <string name="opinionValueTaste">Smak</string>
+    <string name="opinionValueSmell">Zapach</string>
+    <string name="opinionValueTemperature">Temperatura</string>
+    <string name="opinionValueQuantity">Ilość</string>
+    <string name="opinionValuePrice">Cena</string>
+    <string name="opinionValueMealDescription">Opis</string>
+    <string name="opinionValuePhoto">Zdjęcie</string>
+    <string name="opinionValueCoByTu">CoByTu.com</string>
+    <string name="opinionsEnterMandatoryFields">Uzupełnij pola obowiązkowe</string>
+    <string name="opinionValueBackToDescription">Wróć do opisu</string>
+    <string name="loginToEditOpinions">Zaloguj się, żeby edytować swoje opinie</string>
+    <string name="noOpinions">Nie ma opinii, nie ma sortowania</string>
+    <string name="preferenceTooltips">Dymki pomocy</string>
+    <string name="shallIswitchOffTooltipHelper">Wyłączyć dymki pomocy?</string>
+    <string name="activateTooltipHelper">Aktywuj dymki pomocy</string>
+    <string name="checkboxToSwitchOnTooltipHelper">Zaznacz, żeby włączyć dymki pomocy</string>
+    <string name="checkboxToSwitchOffTooltipHelper">Zaznacz, żeby wyłączyć dymki pomocy</string>
+    <string name="toSwitchOnTooltipEnterSettings"><![CDATA[Aby ponownie włączyć dymki wejdź w Ustawienia > Dymki pomocy]]></string>
+    <string name="tooltipOpinionBackToDescription">Wróć do opisu</string>
+    <string name="tooltipOpinionAddMealPoints">Dodaj punkty dla dania</string>
+    <string name="alertDialogOpinionTooltipSwitchOFF">Wyłącz</string>
+    <string name="alertDialogOpinionTooltipDoNotSwitchOFF">Nic nie zmieniaj</string>
+    <string name="sortOpinions">Sortowanie opinii</string>
+    <string name="sortOpinionsByEvaluationASC">"od najgorszej oceny"</string>
+    <string name="sortOpinionsByEvaluationDESC">"od najlepszej oceny"</string>
+    <string name="sortOpinionsByAddingDateASC">od najstarszych</string>
+    <string name="sortOpinionsByAddingDateDESC">od najnowszych</string>
+    <string name="opinionPointsForMeal">Punkty dla dania</string>
+    <string name="title_activity_opinions_list">OpinionsListActivity</string>
+    <string name="noOpinionsToEdit">Tu nie ma Twoich opinii. Nie ma co edytować</string>
+    <string name="editOpinion">EDYTUJ</string>
+    <string name="weightUnit">" g"</string>
+    <string name="kcalUnit">" kcal"</string>
+    <string name="timeUnit">" min"</string>
+    <string name="chooseVariantAdditionals">Wybierz dodatki wariantowe:</string>
+    <string name="chooseExtraAdditionals">Dodatkowo:</string>
+
+    <!-- QR Code -->
+    <string name="no_camera_permission">Ta aplikacja nie może działać, ponieważ nie ma zgody na użycie aparatu. Aplikacja będzie teraz wyjść.</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="barcode_error">"Błąd przy skanowaniu QR kodu: %1$s"</string>
+    <string name="barcode_failure">Nic nie zeskanowano</string>
+    <string name="tapToCapturePinchStretchToZoomInfo">Uszczypnij/rościągnij, żeby zbliżyć/oddalić</string>
+    <string name="noRestaurantInDB">Brak restauracji</string>
+    <string name="notLocationQRCode">To nie jest kod lokalizacji</string>
+
+    <string name="licencesopensource">Licencje open source</string>
+    <string name="mainCourse">Danie</string>
+    <string name="title_activity_main_courses_details">MainCoursesDetailsActivity</string>
+    <string name="search_hint">Wyszukaj dania</string>
+    <string name="menu_search">Szukaj</string>
+
+    <string-array name="snaps_subcategories">
+        <item>CIEPŁE</item>
+        <item>ZIMNE</item>
+    </string-array>
+
+    <string-array name="soups_subcategories">
+        <item>CZYSTE</item>
+        <item>ZABIELANE</item>
+        <item>KREMY</item>
+    </string-array>
+
+    <string-array name="salads_subcategories">
+        <item>WEGETARIAŃSKIE</item>
+        <item>Z MIĘSEM</item>
+        <item>Z RYBĄ</item>
+    </string-array>
+
+    <string-array name="main_courses_subcategories">
+        <item>MIĘSA</item>
+        <item>RYBY</item>
+        <item>OWOCE MORZA</item>
+        <item>WEBETARIAŃSKIE</item>
+        <item>DRÓB</item>
+        <item>WIEPRZOWINA</item>
+        <item>WOŁOWINA</item>
+        <item>STEKI</item>
+        <item>BURGERY</item>
+        <item>MAKARONY</item>
+        <item>PIEROGI</item>
+        <item>NALEŚNIKI</item>
+        <item>PIZZE</item>
+        <item>TARTY</item>
+        <item>KLUSKI</item>
+        <item>PLACKI</item>
+    </string-array>
+
+    <string-array name="kids_subcategories">
+        <item>ZUPY</item>
+        <item>DANIA GŁÓWNE</item>
+    </string-array>
+
+    <string-array name="desserts_subcategories">
+        <item>CIASTA</item>
+        <item>LODY</item>
+        <item>KREMY</item>
+        <item>KOKTAJLE</item>
+        <item>FITNESS</item>
+        <item>CZEKOLADY</item>
+        <item>GALARETKI</item>
+    </string-array>
+
+    <string-array name="beverages_subcategories">
+        <item>HERBATY</item>
+        <item>KAWY</item>
+        <item>SOKI</item>
+        <item>CIEPŁE</item>
+        <item>ZIMNE</item>
+        <item>GAZOWANE</item>
+        <item>NIEGAZOWANE</item>
+    </string-array>
+
+</resources>
+
+

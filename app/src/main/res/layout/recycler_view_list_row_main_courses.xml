@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/fl_main_course_foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginStart="1dp" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/niv_main_course_foto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/main_course_photo"
+            android:scaleType="centerCrop" />
+
+        <com.github.lzyzsd.circleprogress.DonutProgress
+            android:id="@+id/dp_main_course_evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            custom:donut_background_color="@android:color/holo_red_dark"
+            custom:donut_finished_stroke_width="12dp"
+            custom:donut_unfinished_stroke_width="12dp" />
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_main_course_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@android:color/darker_gray"
+            android:focusable="false"
+            android:scrollbars="none" >
+
+            <TextView
+                android:id="@+id/tv_main_course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="4dp"
+                android:text="@string/nazwa_dania"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="24sp"
+                android:typeface="monospace" />
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/ll_main_course_opinions_average_evaluation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="4dp" >
+
+            <RatingBar
+                android:id="@+id/rb_main_course_opinions_average_evaluation"
+                style="@style/RatingBarSmallCobytu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/colorPrimary"
+                android:isIndicator="true"
+                android:progressTint="@color/colorPrimary"
+                android:secondaryProgressTint="@color/colorPrimary"
+                android:stepSize="0.01" />
+
+            <TextView
+                android:id="@+id/tv_main_course_opinions_average_evaluation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/background_average_opinions"
+                android:text="5.88"
+                android:textStyle="bold"
+                android:typeface="serif" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_main_course_additional_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/darker_gray" >
+
+            <RelativeLayout
+                android:id="@+id/rl_main_course_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_toLeftOf="@+id/rl_main_course_details"
+                android:layout_toStartOf="@+id/rl_main_course_details"
+                android:gravity="start|left" >
+
+                <TextView
+                    android:id="@+id/tv_main_course_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/cena"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_main_course_price_currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@+id/tv_main_course_price"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_toEndOf="@+id/tv_main_course_price"
+                    android:layout_toRightOf="@+id/tv_main_course_price"
+                    android:gravity="center"
+                    android:text="@string/currency"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_main_course_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_main_course_kcal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp" >
+
+                    <ImageView
+                        android:id="@+id/iv_main_course_kcal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/energia2_24px" />
+
+                    <TextView
+                        android:id="@+id/tv_main_course_kcal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_main_course_kcal"
+                        android:gravity="center"
+                        android:paddingLeft="2dp"
+                        android:text="@string/sto"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_main_course_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/rl_main_course_kcal"
+                    android:padding="4dp" >
+
+                    <ImageView
+                        android:id="@+id/iv_main_course_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/waga2_24px" />
+
+                    <TextView
+                        android:id="@+id/tv_main_course_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_main_course_weight"
+                        android:gravity="center"
+                        android:paddingLeft="2dp"
+                        android:text="@string/sto"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_main_course_preparation_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/rl_main_course_weight"
+                    android:padding="4dp" >
+
+                    <ImageView
+                        android:id="@+id/iv_main_course_preparation_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/czas2_24px" />
+
+                    <TextView
+                        android:id="@+id/tv_main_course_preparation_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/iv_main_course_preparation_time"
+                        android:gravity="center"
+                        android:paddingLeft="2dp"
+                        android:text="@string/sto"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
+</RelativeLayout>

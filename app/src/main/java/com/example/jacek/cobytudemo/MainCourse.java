@@ -16,6 +16,8 @@ public class MainCourse implements Serializable{
     private String photoURL; // da_foto (url)
     private String restaurantName; // da_gdzie
     private String mainCourseCategoryID; // da_kategoria; tabela 'kategorie' w db
+    private String mainCourseSubCatId; //da_podkategoria
+
     private String mainCourseType; // da_rodzaj
     private String mainCourseName; // da_nazwa
     private String mainCourseDescription; // da_opis
@@ -32,8 +34,7 @@ public class MainCourse implements Serializable{
     private int weight; // waga
     private int kcal; // kcal
 
-    private int subCatIdx; //pk_kolejnosc
-    private int subCatParentID; //pk_ka_id
+
 
     private String evaluation; // ud0_da_lubi (%)
 
@@ -42,13 +43,13 @@ public class MainCourse implements Serializable{
 
     public MainCourse(int id, String mainCourseID, String restaurateurID,
                       String photoURL, String restaurantName,
-                      String mainCourseCategoryID, String mainCourseType,
+                      String mainCourseCategoryID, String mainCourseSubCatId, String mainCourseType,
                       String mainCourseName, String mainCourseDescription, String mainCourseAverageEvaluation,
                       String additionalPrimary, String additionalVariant,
                       String additionalsVariantList1, String additionalsVariantList2,
                       String additionalsAdditionalList, String allergens, String priceBasic, String price,
                       String preparationTime, int weight, int kcal, String evaluation,
-                      String username, int subCatIdx, int subCatParentID) {
+                      String username) {
         super();
         this.id = id;
         this.mainCourseID = mainCourseID;
@@ -56,6 +57,7 @@ public class MainCourse implements Serializable{
         this.photoURL = photoURL;
         this.restaurantName = restaurantName;
         this.mainCourseCategoryID = mainCourseCategoryID;
+        this.mainCourseSubCatId = mainCourseSubCatId;
         this.mainCourseType = mainCourseType;
         this.mainCourseName = mainCourseName;
         this.mainCourseDescription = mainCourseDescription;
@@ -73,8 +75,7 @@ public class MainCourse implements Serializable{
         this.kcal = kcal;
         this.evaluation = evaluation;
         this.username = username;
-        this.subCatIdx = subCatIdx;
-        this.subCatParentID = subCatParentID;
+
     }
 
     public int getId() {
@@ -262,19 +263,10 @@ public class MainCourse implements Serializable{
         this.additionalsAdditionalList = additionalsAdditionalList;
     }
 
-    public int getSubCatIdx() {
-        return subCatIdx;
+
+    public String getMainCourseSubCatId() {
+        return mainCourseSubCatId;
     }
 
-    public void setSubCatIdx(int subCatIdx) {
-        this.subCatIdx = subCatIdx;
-    }
 
-    public int getSubCatParentID() {
-        return subCatParentID;
-    }
-
-    public void setSubCatParentID(int subCatParentID) {
-        this.subCatParentID = subCatParentID;
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.jacek.cobytudemo;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -51,6 +52,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -71,6 +73,16 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    OnSubcategorySelectedListener mCallback;
+
+    public interface OnSubcategorySelectedListener {
+        public void onSubcategorySelected(Context context, String subcatID);
+    }
+   /* public void setOnSubcategoryCallbackInActivity(OnSubcategorySelectedListener mCallback){
+        this.mCallback = mCallback;
+    }*/
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        implementSubcategories(tabLayout);
+        TabLayout.Tab tab = tabLayout.getTabAt(3);
+        tab.select();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -101,16 +113,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //Subcategories
+
+        implementSubcategories(tabLayout);
+
+
         //Search
-       /* Intent intent = getIntent();
+        Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             Log.d("cobytu", "query: " + query);
 //            doMySearch(query);
         }
-*/
+
 
     }
+
 
     private void implementSubcategories(TabLayout tabLayout) {
         LinearLayout tabStrip = (LinearLayout) tabLayout.getChildAt(0);
@@ -161,14 +179,52 @@ public class MainActivity extends AppCompatActivity {
                             .setOnItemClickListener(new OnItemClickListener() {
                                 @Override
                                 public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
-                                    Log.d("cobytu", "DialogPlus " + "onItemClick() called with: " + "item = [" +
-                                            item + "], position = [" + position + "]" + " iFinal: " + iFinal);
+                                    Log.d("cobytu", "DialogPlus " + "onItemClick() called with: " + " position = [" + position + "]" + " iFinal: " + iFinal);
+
+                                    //position - id wektora podkategorii
+                                    //iFinal - id kategorii
+                                    String[] subcarrID = new String[0]; //subcategoryID Array For Current Category
+                                    switch (iFinal) {  //najpierw w switchu wchodzimy do danej kategori
+                                        case 0:
+                                            subcarrID = getResources().getStringArray(R.array.snaps_subcategories_id);
+                                            Log.d("cobytu", subcarrID[position]);
+
+                                            break;
+                                        case 1:
+                                            subcarrID = getResources().getStringArray(R.array.soups_subcategories_id);
+                                            break;
+                                        case 2:
+                                            subcarrID = getResources().getStringArray(R.array.salads_subcategories_id);
+                                            break;
+                                        case 3:
+                                            subcarrID = getResources().getStringArray(R.array.main_courses_subcategories_id);
+                                            break;
+                                        case 4:
+                                            subcarrID = getResources().getStringArray(R.array.kids_subcategories_id);
+                                            break;
+                                        case 5:
+                                            subcarrID = getResources().getStringArray(R.array.desserts_subcategories_id);
+                                            break;
+                                        case 6:
+                                            subcarrID = getResources().getStringArray(R.array.beverages_subcategories_id);
+                                            break;
+                                        case 7:
+                                            subcarrID = null;
+                                            break;
+
+                                    }
+                                    mCallback = (OnSubcategorySelectedListener) mSectionsPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+                                    if(subcarrID!=null){
+                                        mCallback.onSubcategorySelected(MainActivity.this, subcarrID[position]);
+                                    }
+                                    dialog.dismiss();
+
+
                                 }
                             })
                             .setGravity(Gravity.CENTER)
                             .setAdapter(adapter)
                             .setExpanded(false)
-
                             .setCancelable(true)
                             .setContentBackgroundResource(R.color.colorPrimary)
                             .create() : null;
@@ -193,16 +249,29 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-/*
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+      SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         // Assumes current activity is the searchable activity
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
-*/
+      /*    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                loadHistory(newText);
+                return true;
+            }
+        });*/
+
 
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -227,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment implements RecyclerViewAdapterMainCourses.ClickListener, SearchView.OnQueryTextListener {
+    public static class PlaceholderFragment extends Fragment implements RecyclerViewAdapterMainCourses.ClickListener, SearchView.OnQueryTextListener, OnSubcategorySelectedListener {
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -237,6 +306,8 @@ public class MainActivity extends AppCompatActivity {
         private RelativeLayout rlInfo;
         private RecyclerViewAdapterMainCourses recyclerAdapter;
         private int mainCourseCategoryID = 3;
+        private String mainCourseSubcategoryID = "000";
+        private boolean FLAG_GET_DATA_BASED_ON_SUBCATEGORY = false;
 
         public PlaceholderFragment() {
         }
@@ -250,8 +321,10 @@ public class MainActivity extends AppCompatActivity {
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
+
             return fragment;
         }
+
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -279,6 +352,12 @@ public class MainActivity extends AppCompatActivity {
             read(getActivity());
         }
 
+        /*   @Override
+           public void onResume() {
+               super.onResume();
+               ((MainActivity)getActivity()).setOnSubcategoryCallbackInActivity(this);
+           }
+   */
         @Override
         public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
             super.onCreateOptionsMenu(menu, inflater);
@@ -294,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 SharedPreferences prefs = context.getSharedPreferences(
                         "com.cobytu.app", Context.MODE_PRIVATE);
-                jsonArrayMainCourses = new JSONArray(prefs.getString(mcKey, null));
+                jsonArrayMainCourses = new JSONArray(prefs.getString(mcKey, context.getResources().getString(R.string.default_json)));
                 parseMainCourseListFromJSONArray(jsonArrayMainCourses);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -342,6 +421,7 @@ public class MainActivity extends AppCompatActivity {
                             tempMainCourseObject.getString(KEY_PHOTO_URL),
                             tempMainCourseObject.getString(KEY_RESTAURANT_NAME),
                             tempMainCourseObject.getString(KEY_MAIN_COURSE_CATEGORY_ID),
+                            tempMainCourseObject.getJSONArray(KEY_MAIN_COURSE_SUBCATEGORY_ID).toString(),
                             tempMainCourseObject.getString(KEY_MAIN_COURSE_TYPE),
                             tempMainCourseObject.getString(KEY_MAIN_COURSE_NAME),
                             tempMainCourseObject.getString(KEY_MAIN_COURSE_DESCRIPTION),
@@ -358,8 +438,8 @@ public class MainActivity extends AppCompatActivity {
                             tempMainCourseObject.getInt(KEY_WEIGHT),
                             tempMainCourseObject.getInt(KEY_KCAL),
                             tempMainCourseObject.getString(KEY_EVALUATION),
-                            "Jacek",
-                            2,3
+                            "Jacek"
+
                     );
 //				Log.d("cobytu", getClass().getName() + " userMainCourses.add("+mcID+","+mainCourseObject.getMainCourseName()+"(id:"+mainCourseObject.getMainCourseID()+"))");
                     userMainCoursesTemp.add(mcID, mainCourseObject);
@@ -368,10 +448,10 @@ public class MainActivity extends AppCompatActivity {
 //			Log.d("cobytu", getClass().getName() + " userMainCourses.size() po parsowaniu: "+ userMainCourses.size());
 //Zmiana 06-01-2016
 //			if(mainCourseCategoryID>0){
-                Log.d("cobytu", "Ilsoc dan 1 : " + String.valueOf(userMainCourses.size()));
-                userMainCourses = getAppropriateDataDependingOnCategory(userMainCoursesTemp);
+
+                userMainCourses = (FLAG_GET_DATA_BASED_ON_SUBCATEGORY) ? getAppropriateDataDependingOnSubcategory(userMainCoursesTemp) : getAppropriateDataDependingOnCategory(userMainCoursesTemp);
 //			}
-                Log.d("cobytu", "Ilsoc dan 3 : " + String.valueOf(userMainCourses.size()));
+                Log.d("cobytu", " list size TUTAJ!!!!!!: " + String.valueOf(userMainCourses.size()));
                 loadList(userMainCourses);
 
             } catch (JSONException e) {
@@ -381,13 +461,38 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        private List<MainCourse> getAppropriateDataDependingOnCategory(List<MainCourse> userMainCourses) {
+        private List<MainCourse> getAppropriateDataDependingOnSubcategory(List<MainCourse> userMainCourses) {
             List<MainCourse> userMainCoursesCurrentList = new ArrayList<>();
-            Log.d("cobytu",
-                    "[FragmentMainCourses] loadList()  (userMainCourses != null && mainCourseCategoryID > 0) ");
+
             userMainCoursesCurrentList.clear();
             int counter = 0;
-            Log.d("cobytu", "Ilsoc dan 2 : " + String.valueOf(userMainCourses.size()));
+//        for (int i = 0; i < ((userMainCourses != null && !userMainCourses.isEmpty()) ? userMainCourses.size() : db.getUserMainCoursesBatchInfo(DatabaseHandler.getKEY_USER_MAIN_COURSES_TOTAL())); i++) {
+            for (int i = 0; i < userMainCourses.size(); i++) {
+                try {
+                    JSONArray temparr = new JSONArray(userMainCourses.get(i).getMainCourseSubCatId());
+                    String[] tempstrarr = new String[temparr.length()];
+                    for (int k = 0; k < temparr.length(); k++) {
+                        tempstrarr[k] = temparr.getString(k);
+                    }
+                    if (Arrays.asList(tempstrarr).contains(mainCourseSubcategoryID)) {
+
+                        userMainCoursesCurrentList.add(counter, userMainCourses.get(i));
+                        counter++;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            return userMainCoursesCurrentList;
+        }
+
+        private List<MainCourse> getAppropriateDataDependingOnCategory(List<MainCourse> userMainCourses) {
+            List<MainCourse> userMainCoursesCurrentList = new ArrayList<>();
+
+            userMainCoursesCurrentList.clear();
+            int counter = 0;
 //        for (int i = 0; i < ((userMainCourses != null && !userMainCourses.isEmpty()) ? userMainCourses.size() : db.getUserMainCoursesBatchInfo(DatabaseHandler.getKEY_USER_MAIN_COURSES_TOTAL())); i++) {
             for (int i = 0; i < userMainCourses.size(); i++) {
                 if (Integer.valueOf(userMainCourses.get(i).getMainCourseCategoryID()) == mainCourseCategoryID) {
@@ -405,14 +510,14 @@ public class MainActivity extends AppCompatActivity {
             mainlist = list;
             if (getActivity() != null) {
         /*	Log.d("cobytu",getClass().getName() + " userMainCourseToDisplayInner ("+userMainCourseToDisplayInner.size()+
-					"), userMainCoursesInner("+userMainCoursesInner.size()+")");
+                    "), userMainCoursesInner("+userMainCoursesInner.size()+")");
 */
 //              recyclerAdapter = new RecyclerViewAdapterMainCourses(getActivity(), (userMainCourses.size()+1 >= numberOfMCperPage) ? userMainCourseToDisplayInner : userMainCoursesInner);
                 recyclerAdapter = new RecyclerViewAdapterMainCourses(getActivity(), list);
                 recyclerAdapter.setClickListener(PlaceholderFragment.this);
                 recyclerView.setAdapter(recyclerAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+                FLAG_GET_DATA_BASED_ON_SUBCATEGORY = false;
             } else {
                 Log.d("cobytu", "Za szybko, od�wie� liste da�");
             }
@@ -456,22 +561,31 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        @Override
+        public void onSubcategorySelected(Context context, String subcatID) {
+            FLAG_GET_DATA_BASED_ON_SUBCATEGORY = true;
+            mainCourseSubcategoryID = subcatID;
+            read(context);
+        }
     }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public class SectionsPagerAdapter extends SmartFragmentStatePagerAdapter {
+        FragmentManager fm;
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
+            this.fm = fm;
         }
 
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
+//            mCallback = PlaceholderFragment.newInstance(position+1);
             return PlaceholderFragment.newInstance(position + 1);
         }
 
@@ -525,7 +639,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void processMainCourses(final SharedPreferences prefs) {
         //ProcessMainCourses
-        StringRequest processMainCoursesGETrequest = new StringRequest(Request.Method.GET, "http://www.cobytu.com/cbt.php?d=j_przegladaj_dania5&next=1000", //Zmiana 06-01-2015
+        StringRequest processMainCoursesGETrequest = new StringRequest(Request.Method.GET, "http://www.cobytu.com/cbt.php?d=j_przegladaj_dania5&next=1000&uz=jacek", //Zmiana 06-01-2015
                 new Response.Listener<String>() {
 
                     @Override
@@ -588,6 +702,7 @@ public class MainActivity extends AppCompatActivity {
     static final String KEY_PHOTO_URL = "da_foto";
     static final String KEY_RESTAURANT_NAME = "da_gdzie";
     static final String KEY_MAIN_COURSE_CATEGORY_ID = "da_kategoria";
+    static final String KEY_MAIN_COURSE_SUBCATEGORY_ID = "da_podkategoria";
     static final String KEY_MAIN_COURSE_TYPE = "da_rodzaj";
     static final String KEY_MAIN_COURSE_NAME = "da_nazwa";
     static final String KEY_MAIN_COURSE_DESCRIPTION = "da_opis";
